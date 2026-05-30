@@ -2960,8 +2960,8 @@ input[type="text"]:focus {
 }
 
 .gallery-card {
-    flex: 0 0 82%; /* Takes up 82% of screen width to preview next card */
-    max-width: 320px;
+    flex: 0 0 80%; /* Slightly smaller width to show more of next card */
+    max-width: 300px;
     scroll-snap-align: start;
     background: #fff;
     border-radius: 16px;
@@ -2978,7 +2978,8 @@ input[type="text"]:focus {
 
 .gallery-card img {
     width: 100%;
-    height: 450px;
+    aspect-ratio: 3/4; /* Perfect mobile-friendly portrait ratio */
+    height: auto;
     object-fit: cover;
     display: block;
 }
