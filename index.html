@@ -37,14 +37,12 @@
 
     <!-- Performance: Preconnect to all external origins to resolve DNS early -->
     <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://firestore.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://db.onlinewebfonts.com" crossorigin>
     <link rel="dns-prefetch" href="https://unpkg.com">
     <link rel="dns-prefetch" href="https://maps.googleapis.com">
-    <link rel="dns-prefetch" href="https://saeed-anzi-wedding.firebaseapp.com">
 
     <!-- Preload the hero video so it starts playing before the loader fades -->
-    <link rel="preload" href="hero_bg_vid.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="hero_bg_vid.mp4?v=3.0" as="video" type="video/mp4">
 
     <link rel="stylesheet" href="main.css?v=2.1">
 
@@ -56,7 +54,7 @@
     <!-- Loading Screen -->
     <div id="loading-screen" class="screen overlay">
         <div class="loader-container">
-            <div class="loading-logo">S & A</div>
+            <div class="loading-logo">R & A</div>
         </div>
         <p class="loading-status">LOADING YOUR INVITATION</p>
         <div class="loading-bar"></div>
@@ -68,13 +66,13 @@
         <!-- HERO SECTION -->
         <section id="hero">
             <video autoplay muted loop playsinline preload="auto" class="hero-video">
-                <source src="hero_bg_vid.mp4" type="video/mp4">
+                <source src="hero_bg_vid.mp4?v=3.0" type="video/mp4">
             </video>
             <div class="hero-content">
                 <div id="personalized-greeting" class="personalized-greeting hidden"></div>
                 <p class="bismillah-text-arabic">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
-                <p class="blessing-text">With the blessings of Allah we are delighted to<br>invite you to the Nikah ceremony of</p>
-                <h1 class="couple-names-main">Saeed & Ansi</h1>
+                <p class="blessing-text">With the blessings of Allah we are delighted to invite you to the Reception of</p>
+                <h1 class="couple-names-main">Ramees & Anziya</h1>
             </div>
         </section>
 
@@ -83,7 +81,7 @@
             <div class="section-container">
                 <div class="verse-card-image-wrap">
                     <!-- lazy: 1.5MB image — only load when user scrolls to it -->
-                <img src="inv.PNG?v=2.2" alt="Full Invitation Card" class="verse-card-full-img" loading="lazy" decoding="async">
+                <img src="inv.PNG?v=3.0" alt="Full Invitation Card" class="verse-card-full-img" loading="lazy" decoding="async">
                 </div>
             </div>
         </section>
@@ -96,12 +94,12 @@
                 
                 <div class="schedule-grid">
                     <div class="schedule-item">
-                        <span class="time">07:00 PM</span>
-                        <span class="event">NIKKAH (After Maghrib)</span>
+                        <span class="time">11:00 AM</span>
+                        <span class="event">RECEPTION STARTS</span>
                     </div>
                     <div class="schedule-item">
-                        <span class="time">07:30 PM</span>
-                        <span class="event">RECEPTION</span>
+                        <span class="time">02:00 PM</span>
+                        <span class="event">RECEPTION ENDS</span>
                     </div>
                 </div>
             </div>
@@ -113,15 +111,16 @@
                 <h2 class="section-title">LOCATION</h2>
                 <div class="location-layout">
                     <div class="location-text left">
-                        <p>ZAWAJ CAPITOL</p>
-                        <p>PALAKKAD, KERALA</p>
+                        <p style="font-weight: bold;">KMR Convention Center</p>
+                        <p>PIN: 678671</p>
+                        <a href="https://maps.app.goo.gl/HiKVKsMaU8eRgSUN8" target="_blank" class="btn-minimal dark" style="margin-top: 1rem; padding: 0.8rem 1.5rem; display: inline-block;">GET LOCATION</a>
                     </div>
                     <div class="location-image">
-                        <img id="venue-img" src="venue.new.png" alt="Venue" loading="lazy" decoding="async" style="cursor: pointer;">
+                        <img id="venue-img" src="kmr.png" alt="Venue" loading="lazy" decoding="async" style="cursor: pointer;">
                     </div>
                     <div class="location-text right">
                         <p>KERALA, INDIA</p>
-                        <p>PIN: 678006</p>
+                        <p>PIN: 678671</p>
                     </div>
                 </div>
             </div>
@@ -140,18 +139,6 @@
             </div>
         </section>
 
-        <!-- RSVP SECTION -->
-        <section id="rsvp" class="reveal">
-            <div class="section-container">
-                <h2 class="section-title">RSVP</h2>
-                <p class="rsvp-intro">Will you be joining us in this celebration of love?</p>
-                <div class="rsvp-actions">
-                    <button id="btn-yes" class="btn-minimal dark">I'M COMING</button>
-                    <button id="btn-no" class="btn-minimal">SORRY, CAN'T MAKE IT</button>
-                </div>
-                <p id="rsvp-message" class="hidden"></p>
-            </div>
-        </section>
 
         <!-- FOOTER CALIGRAPHY -->
         <footer class="luxury-footer reveal">
@@ -165,120 +152,6 @@
         </footer>
 
     </main>
-
-    <!-- Celebration & RSVP Modal Screen -->
-    <div id="rsvp-modal-screen" class="screen overlay hidden">
-        <canvas id="confetti-canvas"></canvas>
-        <canvas id="foreground-canvas"></canvas>
-        <div class="rsvp-modal-card" data-lenis-prevent>
-            <!-- Back button for step 1 -->
-            <button id="modal-back-btn" class="modal-back-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-
-            <!-- STEP 1: Counter -->
-            <div id="rsvp-step-1" class="rsvp-step">
-                <h2 class="modal-title">Wonderful!</h2>
-                <p class="modal-subtitle">DETAILS FOR SAEED & ANSI</p>
-                
-                <!-- Mandatory Name Input -->
-                <div class="rsvp-input-group">
-                    <label for="guest-name-input" class="rsvp-label">Name*</label>
-                    <input type="text" id="guest-name-input" class="rsvp-input" placeholder="ENTER YOUR FULL NAME" autocomplete="name" maxlength="80">
-                    <p id="name-error" class="error-msg hidden">Please enter your name to proceed</p>
-                    <!-- Honeypot anti-bot trap: hidden from humans, filled by bots -->
-                    <input type="text" id="_rsvp_trap" name="_rsvp_trap" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
-                </div>
-                
-                <div class="counter-box">
-                    <p class="counter-question">How many family members will attend?</p>
-                    <div class="counter-controls">
-                        <button id="btn-minus" class="btn-circle">−</button>
-                        <span id="family-count">1</span>
-                        <button id="btn-plus" class="btn-circle">+</button>
-                    </div>
-                    <p class="counter-subtext">INCLUDING YOURSELF</p>
-                </div>
-                
-                <button id="submit-rsvp-final" class="btn-large-green">SUBMIT RSVP</button>
-            </div>
-
-            <!-- STEP 2: Confirmation & Details -->
-            <div id="rsvp-step-2" class="rsvp-step hidden">
-                <!-- Success Graphic -->
-                <div class="rsvp-success-graphic-container">
-                    <div class="success-header-text">
-                        <p class="arabic-blessing-top">جزاكم اللّٰه خيراً</p>
-                        <h2 class="modal-title">We Can't Wait</h2>
-                        <h3 class="success-names">Saeed & Ansi</h3>
-                        <p class="success-confirmation">Your RSVP has been received.<br>We look forward to celebrating with you.</p>
-                    </div>
-
-                    <div class="success-details-split">
-                        <div class="details-left">
-                            <p class="arabic-p-left">إن شاء الله</p>
-                            <p class="details-text"><span class="highlight-date">24 MAY</span><br>Nikkah Time: 07:00 PM</p>
-                        </div>
-                        <div class="details-divider-vertical"></div>
-                        <div class="details-right">
-                            <p class="details-text">
-                                <span class="highlight-venue">Zawaj Capitol</span> Palakkad Kerala<br>
-                                <a href="https://maps.app.goo.gl/m8A3mgL9X72vEW9ZA?g_st=ic" target="_blank" class="btn-location-mini">CLICK HERE FOR LOCATION</a><br>
-                                <a href="tel:8606459566" class="phone-link">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.18-1.14a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                                    8606459566
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <!-- Integrated Countdown Overlay -->
-                    <div class="success-countdown-overlay">
-                        <p class="sc-label">COUNTDOWN TO NIKAH</p>
-                        <div class="sc-grid">
-                            <div class="sc-item"><span id="m-days">00</span><label>DAYS</label></div>
-                            <div class="sc-item"><span id="m-hours">00</span><label>HOURS</label></div>
-                            <div class="sc-item"><span id="m-minutes">00</span><label>MINUTES</label></div>
-                            <div class="sc-item"><span id="m-seconds">00</span><label>SECONDS</label></div>
-                        </div>
-                    </div>
-
-                    <!-- Integrated Action Buttons -->
-                    <div class="success-actions-overlay">
-                        <button id="btn-edit-response" class="btn-card-action">EDIT RESPONSE</button>
-                        <a href="inv.PNG?v=2.2" download="Saeed_Ansi_Wedding_Invitation.png" class="btn-card-action">DOWNLOAD INVITATION</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- STEP 3: Decline Screen -->
-            <div id="rsvp-step-3" class="rsvp-step hidden">
-                <div class="decline-flower-icon">🌸</div>
-                <h2 class="modal-title" style="margin-bottom: 0.2rem;">We'll Miss You</h2>
-                <p class="modal-subtitle" style="margin-bottom: 2rem;">WE UNDERSTAND</p>
-                
-                <div class="decline-msg-box">
-                    <p>Thank you so much for letting us know. Though you won't be with us in person, you'll be in our hearts as we celebrate this special day.</p>
-                </div>
-                
-                <div class="decline-event-card">
-                    <div class="decline-event-row">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        <span>24 May 2026 · 07:00 PM</span>
-                    </div>
-                    <div class="decline-event-row" style="border-top: 1px solid var(--border-light); margin-top: 1rem; padding-top: 1rem; align-items: flex-start;">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.2rem; flex-shrink: 0;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <div style="display:flex; flex-direction:column;">
-                            <span style="font-weight:600; color:var(--text-primary);">Zawaj Capitol,</span>
-                            <span style="color:var(--text-secondary); line-height: 1.4;">Zawaj Capitol mercy college junction adithyapuram pallippuram palakkad kerala</span>
-                        </div>
-                    </div>
-                </div>
-
-                <button id="btn-change-mind" class="btn-change-mind" style="margin-bottom: 1.5rem;">CHANGE MY MIND — I'LL ATTEND!</button>
-            </div>
-        </div>
-    </div>
 
     <script type="module" src="main.js?v=2.4"></script>
     <!-- Music Toggle -->
