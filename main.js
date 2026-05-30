@@ -103,12 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         venueImg.addEventListener('click', (e) => {
-            const currentTime = Date.now();
-            const tapGap = currentTime - lastClick;
-            if (tapGap < 350 && tapGap > 0) {
-                openMap();
-            }
-            lastClick = currentTime;
+            openMap();
         });
     }
 
