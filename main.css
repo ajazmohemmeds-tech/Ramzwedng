@@ -111,24 +111,38 @@ h1, h2, h3, .logo, .date-digit, .time, .couple-names-main {
     justify-content: center;
 }
 
-.loading-logo-img {
-    width: clamp(80px, 20vw, 150px);
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    animation: loaderPulse 2.5s ease-in-out infinite alternate;
+.loading-logo {
+    font-family: 'Mutiara', cursive;
+    font-size: clamp(4rem, 20vw, 7rem);
+    color: transparent; /* Start invisible to show only the stroke */
+    -webkit-text-stroke: 0.5px #4A4036;
+    position: relative;
+    white-space: nowrap;
+    line-height: 1.2;
+    display: inline-block;
+    padding: 0 4rem; /* Extra room for calligraphy flourishes */
+    overflow: visible !important;
+    animation: skeletalBloom 5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes loaderPulse {
+@keyframes skeletalBloom {
     0% {
-        opacity: 0.6;
-        transform: scale(0.95);
-        filter: blur(1px);
+        opacity: 0;
+        letter-spacing: 0.3em;
+        transform: scale(0.9) translateX(-0.5cm);
+        -webkit-text-stroke-width: 0.2px;
+        filter: blur(4px);
+    }
+    20% {
+        opacity: 1;
+        filter: blur(0);
     }
     100% {
         opacity: 1;
-        transform: scale(1.05);
-        filter: blur(0px);
+        letter-spacing: normal;
+        transform: scale(1) translateX(-0.5cm);
+        -webkit-text-stroke-width: 0;
+        color: #4A4036; /* Fill the text at the end */
     }
 }
 
@@ -2919,4 +2933,67 @@ input[type="text"]:focus {
     .guest-table {
         min-width: 600px;
     }
+}
+
+/* ==========================================================================
+   PHOTO GALLERY SLIDER
+   ========================================================================== */
+#photo-gallery {
+    padding: 6rem 0;
+    background: var(--bg-white);
+    overflow: hidden;
+}
+
+.gallery-slider {
+    display: flex;
+    gap: 1.2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 1rem 1.5rem 3rem 1.5rem; /* Bottom padding for shadow clearance */
+    scroll-padding: 0 1.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+}
+
+.gallery-slider::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+.gallery-card {
+    flex: 0 0 82%; /* Takes up 82% of screen width to preview next card */
+    max-width: 320px;
+    scroll-snap-align: start;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-img-placeholder {
+    width: 100%;
+    height: 450px;
+    background: #FDFBF7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    color: #a09786;
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    border: 1px dashed rgba(160, 151, 134, 0.4);
+    box-sizing: border-box;
 }
