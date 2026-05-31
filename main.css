@@ -364,7 +364,7 @@ h1, h2, h3, .logo, .date-digit, .time, .couple-names-main {
 /* Verse Card Section */
 #verse-card {
     padding: 0; 
-    background: url('pink_florals.png') center/cover no-repeat var(--bg-white);
+    background: url('pink_florals_black.png') center/cover no-repeat var(--bg-white);
     display: flex;
     justify-content: center;
 }
@@ -468,7 +468,7 @@ h1, h2, h3, .logo, .date-digit, .time, .couple-names-main {
 
 /* Countdown */
 .dark-floral-bg {
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('pink_florals.png') center/cover scroll;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('pink_florals_black.png') center/cover scroll;
     color: #FFF;
     padding: clamp(6rem, 15vw, 10rem) 0; /* Responsive padding */
 }
