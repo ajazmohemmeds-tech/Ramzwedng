@@ -363,7 +363,7 @@ h1, h2, h3, .logo, .date-digit, .time, .couple-names-main {
 
 /* Verse Card Section */
 #verse-card {
-    padding: clamp(4rem, 10vw, 8rem) 0; /* Add top/bottom padding to show the background */
+    padding: clamp(4rem, 10vw, 8rem) 1.5rem; /* Add horizontal padding for mobile frame */
     background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('pink_florals_black.png') center/cover scroll;
     display: flex;
     justify-content: center;
