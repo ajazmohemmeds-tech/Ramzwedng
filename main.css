@@ -515,6 +515,54 @@ h1, h2, h3, .logo, .date-digit, .time, .couple-names-main {
     margin-top: 0.5rem;
 }
 
+/* Visual Calendar */
+.visual-calendar {
+    max-width: 300px;
+    margin: 2rem auto;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+}
+.cal-month {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+.cal-day-name {
+    font-weight: 600;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    margin-bottom: 0.5rem;
+}
+.cal-day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    width: 36px;
+    margin: 0 auto;
+}
+.cal-day.marked .marked-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: var(--text-primary);
+    color: var(--bg-white);
+    border-radius: 50%;
+    font-weight: bold;
+}
+
 /* Calendar Buttons */
 .calendar-buttons {
     display: flex;

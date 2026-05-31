@@ -130,4 +130,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+    const smartCalBtn = document.getElementById('smart-calendar-btn');
+    if (smartCalBtn) {
+        smartCalBtn.addEventListener('click', () => {
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            if (isIOS) {
+                // Download ICS
+                const icsData = "data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0AURL:https://ramzwedng.vercel.app/%0ADTSTART:20260712T053000Z%0ADTEND:20260712T083000Z%0ASUMMARY:Ramees%20%26%20Anziya%20Reception%20day%0ADESCRIPTION:Join%20us%20to%20celebrate%20the%20reception%20of%20Ramees%20and%20Anziya!%0ALOCATION:KMR%20Convention%20Center,%20Kerala,%20India%0AEND:VEVENT%0AEND:VCALENDAR";
+                const a = document.createElement('a');
+                a.href = icsData;
+                a.download = "Ramees_Anziya_Reception.ics";
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            } else {
+                // Google Calendar
+                const googleUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ramees+%26+Anziya+Reception+day&dates=20260712T053000Z/20260712T083000Z&details=Join+us+to+celebrate+the+reception+of+Ramees+and+Anziya!&location=KMR+Convention+Center,+Kerala,+India";
+                window.open(googleUrl, '_blank');
+            }
+        });
+    }
+
 });
