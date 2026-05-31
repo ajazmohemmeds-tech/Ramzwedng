@@ -486,7 +486,7 @@ h1, h2, h3, .logo, .date-digit, .time, .couple-names-main {
 }
 
 @media (min-width: 1025px) {
-    .dark-floral-bg {
+    .dark-floral-bg, #verse-card {
         background-attachment: fixed;
     }
 }
