@@ -1,0 +1,11 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+URL:https://ramzwedng.vercel.app/
+DTSTART:20260712T053000Z
+DTEND:20260712T083000Z
+SUMMARY:Ramees & Anziya Reception day
+DESCRIPTION:Join us to celebrate the reception of Ramees and Anziya!
+LOCATION:KMR Convention Center, Kerala, India
+END:VEVENT
+END:VCALENDAR
