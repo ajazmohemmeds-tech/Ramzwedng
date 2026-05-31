@@ -132,20 +132,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const smartCalBtn = document.getElementById('smart-calendar-btn');
     if (smartCalBtn) {
-        smartCalBtn.addEventListener('click', () => {
+        smartCalBtn.addEventListener('click', (e) => {
             const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-            if (isIOS) {
-                // Serve real .ics file via a hidden iframe so the page doesn't navigate/refresh
-                const iframe = document.createElement('iframe');
-                iframe.style.display = 'none';
-                iframe.src = 'event.ics';
-                document.body.appendChild(iframe);
-                setTimeout(() => document.body.removeChild(iframe), 2000);
-            } else {
+            if (!isIOS) {
+                // Prevent default anchor link behavior for Android/Desktop
+                e.preventDefault();
                 // Google Calendar
                 const googleUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ramees+%26+Anziya+Reception+day&dates=20260712T053000Z/20260712T083000Z&details=Join+us+to+celebrate+the+reception+of+Ramees+and+Anziya!&location=KMR+Convention+Center,+Kerala,+India";
                 window.open(googleUrl, '_blank');
             }
+            // If iOS, do nothing. Safari natively perfectly handles standard <a href="event.ics"> clicks without refreshing!
         });
     }
 
