@@ -128,25 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    const celebrationAudio = new Audio('celebration.mp3');
-    celebrationAudio.loop = true;
-    let isMuted = localStorage.getItem('music_muted') === 'true';
-    const musicToggle = document.getElementById('music-toggle');
-    function updateMusicUI() {
-        if (!musicToggle) return;
-        const iconOn = musicToggle.querySelector('.icon-on'), iconOff = musicToggle.querySelector('.icon-off');
-        if (isMuted) { musicToggle.classList.add('muted'); iconOn.classList.add('hidden'); iconOff.classList.remove('hidden'); }
-        else { musicToggle.classList.remove('muted'); iconOn.classList.remove('hidden'); iconOff.classList.add('hidden'); }
-    }
-    updateMusicUI();
 
-    if (musicToggle) {
-        musicToggle.classList.remove('hidden');
-        musicToggle.addEventListener('click', () => {
-            isMuted = !isMuted; localStorage.setItem('music_muted', isMuted);
-            updateMusicUI();
-            if (isMuted) celebrationAudio.pause();
-            else celebrationAudio.play().catch(() => {});
-        });
-    }
+
 });
