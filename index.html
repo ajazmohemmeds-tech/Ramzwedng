@@ -45,17 +45,13 @@
 
     <!-- Loading Screen -->
     <div id="loading-screen" class="screen overlay">
-        <video autoplay muted loop playsinline preload="auto" class="loader-bg-video">
-            <source src="gemini_generated_video_409EED5E.MP4" type="video/mp4">
-        </video>
-        <div class="video-overlay"></div> <!-- Helps text readability -->
-        <div class="loader-content-wrapper">
-            <div class="loader-container">
-                <div class="loading-logo">R & A</div>
-            </div>
-            <p class="loading-status">LOADING YOUR INVITATION</p>
-            <div class="loading-bar"></div>
+        <div class="loader-container">
+            <svg viewBox="0 0 200 80" class="loading-svg">
+                <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" class="loading-text-anim">R & A</text>
+            </svg>
         </div>
+        <p class="loading-status">LOADING YOUR INVITATION</p>
+        <div class="loading-bar"></div>
     </div>
 
     <!-- MAIN CONTENT -->
