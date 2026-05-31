@@ -135,8 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
         smartCalBtn.addEventListener('click', () => {
             const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
             if (isIOS) {
-                // Serve real .ics file so iOS Calendar opens it directly instead of downloading
-                window.location.href = 'event.ics';
+                // Serve real .ics file via a hidden iframe so the page doesn't navigate/refresh
+                const iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                iframe.src = 'event.ics';
+                document.body.appendChild(iframe);
+                setTimeout(() => document.body.removeChild(iframe), 2000);
             } else {
                 // Google Calendar
                 const googleUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ramees+%26+Anziya+Reception+day&dates=20260712T053000Z/20260712T083000Z&details=Join+us+to+celebrate+the+reception+of+Ramees+and+Anziya!&location=KMR+Convention+Center,+Kerala,+India";
