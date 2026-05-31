@@ -515,6 +515,47 @@ h1, h2, h3, .logo, .date-digit, .time, .couple-names-main {
     margin-top: 0.5rem;
 }
 
+/* Calendar Buttons */
+.calendar-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.calendar-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-primary);
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    transition: all 0.4s ease;
+    background: transparent;
+}
+
+.calendar-btn:hover {
+    background: var(--text-primary);
+    color: var(--bg-white);
+    transform: translateY(-3px);
+}
+
+.calendar-btn svg {
+    transition: transform 0.4s ease;
+}
+
+.calendar-btn:hover svg {
+    transform: scale(1.1);
+}
+
 /* RSVP */
 #rsvp {
     padding: 10rem 0;
