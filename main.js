@@ -137,9 +137,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isIOS) {
                 // Prevent default anchor link behavior for Android/Desktop
                 e.preventDefault();
-                // Google Calendar
+                // Google Calendar (Open in same tab)
                 const googleUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ramees+%26+Anziya+Reception+day&dates=20260712T053000Z/20260712T083000Z&details=Join+us+to+celebrate+the+reception+of+Ramees+and+Anziya!&location=KMR+Convention+Center,+Kerala,+India";
-                window.open(googleUrl, '_blank');
+                window.location.href = googleUrl;
             }
             // If iOS, do nothing. Safari natively perfectly handles standard <a href="event.ics"> clicks without refreshing!
         });
