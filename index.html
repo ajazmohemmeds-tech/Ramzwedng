@@ -46,9 +46,7 @@
     <!-- Loading Screen -->
     <div id="loading-screen" class="screen overlay">
         <div class="loader-container">
-            <svg viewBox="0 0 400 150" class="loading-svg">
-                <text x="50%" y="60%" text-anchor="middle" dominant-baseline="middle" class="loading-text-anim">R & A</text>
-            </svg>
+            <div class="loading-logo">R & A</div>
         </div>
         <p class="loading-status">LOADING YOUR INVITATION</p>
         <div class="loading-bar"></div>
@@ -59,7 +57,7 @@
         
         <!-- HERO SECTION -->
         <section id="hero">
-            <video autoplay muted loop playsinline preload="auto" class="hero-video">
+            <video autoplay muted loop playsinline webkit-playsinline preload="auto" class="hero-video">
                 <source src="hero_bg_vid.mp4?v=3.0" type="video/mp4">
             </video>
             <div class="hero-content">
@@ -164,7 +162,7 @@
 
     </main>
 
-    <script type="module" src="main.js?v=2.4"></script>
+    <script type="module" src="main.js?v=2.5"></script>
     <!-- Music Toggle -->
     <button id="music-toggle" class="music-toggle-btn hidden" aria-label="Toggle Music">
         <div class="icon-on">

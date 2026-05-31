@@ -61,7 +61,11 @@ if (loader) {
         loader.style.opacity = '0';
         loader.style.visibility = 'hidden';
         const heroVid = document.querySelector('.hero-video');
-        if (heroVid) heroVid.play().catch(e => console.warn("Video failed:", e));
+        if (heroVid) {
+            heroVid.muted = true;
+            heroVid.defaultMuted = true;
+            heroVid.play().catch(e => console.warn("Video autoplay failed (Low Power mode?):", e));
+        }
         lenis.start();
         document.body.classList.remove('is-loading');
         initAutoScroll();
