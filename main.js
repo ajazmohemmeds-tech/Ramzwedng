@@ -64,7 +64,13 @@ if (loader) {
         if (heroVid) {
             heroVid.muted = true;
             heroVid.defaultMuted = true;
+            // Force play and explicit looping for strict mobile browsers
+            heroVid.loop = true;
             heroVid.play().catch(e => console.warn("Video autoplay failed (Low Power mode?):", e));
+            heroVid.addEventListener('ended', () => {
+                heroVid.currentTime = 0;
+                heroVid.play().catch(e => console.log("Loop play blocked:", e));
+            });
         }
         lenis.start();
         document.body.classList.remove('is-loading');
