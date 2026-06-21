@@ -97,19 +97,7 @@ requestAnimationFrame(raf);
 lenis.stop();
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Venue Image Double Click / Double Tap Map (Unified)
-    const venueImg = document.getElementById('venue-img');
-    if (venueImg) {
-        let lastClick = 0;
-        const openMap = () => {
-            console.log("Opening Map...");
-            window.location.href = 'https://maps.app.goo.gl/HiKVKsMaU8eRgSUN8';
-        };
-
-        venueImg.addEventListener('click', (e) => {
-            openMap();
-        });
-    }
+    // Removed redundant JS listener for venue-img since it's now wrapped in an HTML <a> tag.
 
     const targetDate = new Date('July 12, 2026 11:00:00').getTime();
     function updateCountdown() {
